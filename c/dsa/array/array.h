@@ -1,9 +1,9 @@
 
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
 #include <iso646.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // T
 // T is a macro that defines the type of elements stored in the array.
