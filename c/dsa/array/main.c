@@ -7,7 +7,7 @@ typedef char* str;
 
 int main() {
 
-    Array(str) * names = Array(str, create)(5);
+    Array(str) * names = Array(str, new)(5);
 
     Array(str, set)(names, 0, "Alice");
     Array(str, set)(names, 1, "Bob");
@@ -17,7 +17,7 @@ int main() {
 
     Array(str, debug)(names);
 
-    Array(str, destroy)(names);
+    Array(str, delete)(names);
     return 0;
 
 }

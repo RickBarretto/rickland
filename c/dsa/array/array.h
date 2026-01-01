@@ -1,4 +1,5 @@
 
+
 #include <iso646.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -59,7 +60,7 @@ typedef struct {
 } Self;
 
 
-// Array >> create(size: size_t) -> *Array<T>
+// Array >> new(size: size_t) -> *Array<T>
 //
 // Creates a new array of given size.
 // 
@@ -71,27 +72,27 @@ typedef struct {
 // Returns
 // -------
 // *Array<T>: A pointer to the newly created array.
-Self *fn(create)(size_t size) {
+Self *fn(new)(size_t size) {
     Self * array = malloc(sizeof(Self));
     array->data = calloc(size, sizeof(T));
     array->_size = size;
     return array;
 }
 
-// Array >> destroy(array: *Array<T>) -> bool
+// Array >> delete(array: *Array<T>) -> bool
 //
-// Safely destroys the array, including double free protection.
+// Safely deletes the array, including double free protection.
 //
 // Parameters
 // ----------
 // array : *Array<T>
-//     The array to be destroyed.
+//     The array to be deleted.
 //
 // Returns
 // -------
 // bool: Returns true on success.
 //
-bool fn(destroy)(Self* array) {
+bool fn(delete)(Self* array) {
     ensure(array, false);
 
     free(array->data);
