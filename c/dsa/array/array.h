@@ -1,4 +1,42 @@
-
+// ========
+// Array<T>
+// ========
+// :Author: RickBarretto
+// :Year: 2026
+// :License: MPL 2.0
+// :Copyright: RickBarretto, 2026
+// :Version: 1.0
+//
+// ``Array<T>`` is generic array. 
+// This provides a safe interface to deal with arrays in C,
+// while being readable and avoiding namespace conflicts.
+// This also simulates generics in C by using macros, 
+// making our code more reusable.
+//
+// How to Use
+// ----------
+// Include this header file after defining the type T and the PRINT_T macro.
+// See each function documentation for usage details.
+//
+// A common way to import it would be:
+//
+//      typedef char* cstring;
+//      #define T cstring                          // defining the inner type
+//      #define PRINT_T(value) printf("%s", value) // defining the print macro
+//      #include "array.h"                         // including the DS
+//
+// Notice that we need to declare a char* as cstring
+// due to the macro evaluation rules.
+// Each function we have is namespaced under Array<type>,
+// i.e. ``Array(cstring, create)`` is the same as ``Array_cstring_create``.
+// If you pass a char* directly as T, the macro expansion will break.
+// 
+// And a common way to use it would be:
+//      Array(cstring) * arr = Array(cstring, create)(10);
+//      Array(cstring, set)(arr, 0, "Hello");
+//      Array(cstring, println)(arr);
+//      cstring * first = Array(cstring, get)(arr, 0);
+//
 
 #include <iso646.h>
 #include <stdbool.h>
