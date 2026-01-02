@@ -293,3 +293,8 @@ void fn(debug)(Self * array) {
     printf("}\n");
 
 }
+
+#undef Self
+#undef fn
+#undef T
+#undef PRINT_T
