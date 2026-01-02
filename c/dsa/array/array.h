@@ -38,10 +38,28 @@
 //      cstring * first = Array(cstring, get)(arr, 0);
 //
 
+// =~=~=~=~=~=~=~=~ Imports ~=~=~=~=~=~=~=~=
+
 #include <iso646.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+
+// =~=~=~=~=~=~=~=~ Helper Macros ~=~=~=~=~=~=~=~=
+
+#define _CAT(X, Y) X ## _ ## Y
+#define CAT(X, Y) _CAT(X, Y)
+#define _CAT3(X, Y, Z) X ## _ ## Y ## _ ## Z
+#define CAT3(X, Y, Z) _CAT3(X, Y, Z)
+
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+
+#define ensure(COND, VAL) if (not (COND)) return VAL
+
+
+// =~=~=~=~=~=~=~=~ Implementation ~=~=~=~=~=~=~=~=
 
 // T
 // T is a macro that defines the type of elements stored in the array.
@@ -71,25 +89,13 @@
 #endif
 
 #define MODULE Array
-
 #define Self CAT(MODULE, T)
-
-#define _CAT(X, Y) X ## _ ## Y
-#define CAT(X, Y) _CAT(X, Y)
-#define _CAT3(X, Y, Z) X ## _ ## Y ## _ ## Z
-#define CAT3(X, Y, Z) _CAT3(X, Y, Z)
-
-#define STRINGIFY(x) #x
-#define TOSTRING(x) STRINGIFY(x)
-
 #define fn(NAME) CAT(Self, NAME)
 
 #define _ARRAY_SELECT_MACRO(_1, _2, NAME, ...) NAME
 #define Array(...) _ARRAY_SELECT_MACRO(__VA_ARGS__, Array2, Array1)(__VA_ARGS__)
 #define Array1(T) CAT(MODULE, T)
 #define Array2(T, FUNC) CAT3(MODULE, T, FUNC)
-
-#define ensure(COND, VAL) if (not (COND)) return VAL
 
 typedef struct {
     T* data;
