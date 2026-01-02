@@ -6,7 +6,7 @@
 // :Year: 2026
 // :License: MPL 2.0
 // :Copyright: RickBarretto, 2026
-// :Version: 1.0
+// :Version: 1.0.1
 //
 // ``Array<T>`` is generic array. 
 // This provides a safe interface to deal with arrays in C,
