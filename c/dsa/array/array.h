@@ -1,6 +1,7 @@
 // ========
 // Array<T>
 // ========
+//
 // :Author: RickBarretto
 // :Year: 2026
 // :License: MPL 2.0
@@ -61,8 +62,7 @@
 
 // =~=~=~=~=~=~=~=~ Implementation ~=~=~=~=~=~=~=~=
 
-// T
-// T is a macro that defines the type of elements stored in the array.
+// T: Element type of the Array<T>
 #ifndef T
 #error "T is not defined"
 #endif
@@ -115,6 +115,7 @@ typedef struct {
 // Returns
 // -------
 // *Array<T>: A pointer to the newly created array.
+//
 Self *fn(new)(size_t size) {
     Self * array = malloc(sizeof(Self));
     array->data = calloc(size, sizeof(T));
@@ -242,11 +243,6 @@ size_t fn(size)(Self * array) {
 // 
 // Prints the array on terminal.
 //
-// Parameters
-// ----------
-// array : *Array<T>
-//     The array to be printed.
-//
 void fn(print)(Self * array) {
     ensure(array,);
 
@@ -262,11 +258,6 @@ void fn(print)(Self * array) {
 //
 // Prints the array on terminal followed by a newline.
 //
-// Parameters
-// ----------
-// array : *Array<T>
-//     The array to be printed.
-//
 void fn(println)(Self * array) {
     fn(print)(array);
     printf("\n");
@@ -275,11 +266,6 @@ void fn(println)(Self * array) {
 // Array >> debug(array: *Array<T>) -> void
 //
 // Prints the debug representation of the array.
-//
-// Parameters
-// ----------
-// array : *Array<T>
-//     The array to be debugged.
 //
 void fn(debug)(Self * array) {
     if (not array) {
